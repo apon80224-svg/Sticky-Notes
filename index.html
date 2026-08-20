@@ -2,37 +2,112 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>আমার ডিজিটাল নলেজ হাব</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background: #f4f4f9; padding: 20px; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
-        .search-box { width: 100%; padding: 10px; margin-bottom: 20px; }
-        .subject-card { padding: 15px; border-bottom: 1px solid #ddd; }
-        h1 { color: #333; text-align: center; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-box:focus {
+            border-color: #1a73e8;
+        }
+        .subject-card {
+            background: #f9fbfd;
+            border: 1px solid #e1e8ed;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 6px solid #1a73e8;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .subject-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .subject-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 20px;
+        }
+        .lesson-content {
+            margin-top: 10px;
+            color: #555;
+            line-height: 1.7;
+        }
+        .lesson-content p {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>আমার শেখার জগত</h1>
-        <input type="text" id="search" class="search-box" placeholder="আপনার প্রয়োজনীয় তথ্য সার্চ করুন...">
+        <h1>আমার ডিজিটাল নলেজ হাব</h1>
+        
+        <!-- সার্চ বক্স -->
+        <input type="text" id="search" class="search-box" placeholder="আপনার প্রয়োজনীয় অধ্যায় বা লেসন সার্চ করুন...">
         
         <div id="content">
+            
+            <!-- একাউন্টিং অধ্যায় ১ -->
             <div class="subject-card">
-                <h3>Accounting</h3>
-                <p>এখানে আপনার একাউন্টিং এর প্রয়োজনীয় লেসনগুলো থাকবে।</p>
+                <h3>Accounting - অধ্যায় ১: হিসাববিজ্ঞান পরিচিতি</h3>
+                <div class="lesson-content">
+                    <p><strong>মূল বিষয়:</strong> হিসাববিজ্ঞান হলো আর্থিক তথ্যাবলী সংগ্রহ, প্রক্রিয়াজাতকরণ এবং সংশ্লিষ্টদের নিকট প্রতিবেদন আকারে প্রকাশ করার পদ্ধতি।</p>
+                    <p>এখানে আপনি আপনার পড়া অনুযায়ী অ্যাকাউন্টিংয়ের সংজ্ঞা, বৈশিষ্ট্য এবং উদ্দেশ্যগুলো নিজের মতো করে বিস্তারিত লিখে রাখতে পারবেন।</p>
+                </div>
             </div>
-            <!-- আপনি এখানে নতুন নতুন তথ্য আপডেট করবেন -->
+
+            <!-- ফিন্যান্স অধ্যায় ১ -->
+            <div class="subject-card">
+                <h3>Finance - অধ্যায় ১: অর্থায়ন ও ব্যবসা</h3>
+                <div class="lesson-content">
+                    <p><strong>মূল বিষয়:</strong> অর্থায়ন তহবিল সংগ্রহ এবং এর সঠিক সদ্ব্যবহারের সাথে জড়িত।</p>
+                    <p>এখানে ফিন্যান্সের বিভিন্ন গুরুত্বপূর্ণ সূত্র, নীতিমালা বা টপিকগুলো ধাপে ধাপে লিখে রাখতে পারবেন।</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- সার্চ করার জন্য জাভাস্ক্রিপ্ট -->
     <script>
         document.getElementById('search').addEventListener('input', function(e) {
             let filter = e.target.value.toLowerCase();
             let items = document.querySelectorAll('.subject-card');
             items.forEach(item => {
-                item.style.display = item.innerText.toLowerCase().includes(filter) ? 'block' : 'none';
+                let text = item.innerText.toLowerCase();
+                item.style.display = text.includes(filter) ? 'block' : 'none';
             });
         });
     </script>
+
 </body>
 </html>
